@@ -1,0 +1,29 @@
+
+
+/*** TABLE SORTER ***/
+.even {
+    background-color: #eee;
+    _background-color: #ddd;
+}
+.odd {
+    background-color: #FFF;
+}
+.highlight {
+    background-color: #3D3D3D;
+    font-weight: bold;
+}
+table.sortable th, table.sortable td {
+    padding-left: 5px;
+}
+table.sortable .header, table.sortable .headerSortUp, table.sortable .headerSortDown {
+    padding-right: 15px;
+}
+table.sortable .header {
+    background: right center no-repeat url(images/arrow.gif);
+}
+table.sortable .headerSortUp {
+    background: right center no-repeat url(images/arrow_asc.gif);
+}
+table.sortable .headerSortDown {
+    background: right center no-repeat url(images/arrow_desc.gif);
+}

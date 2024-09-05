@@ -1,0 +1,9 @@
+
+
+.clearfix, .container {display:block;}
+
+/* input more style of span */
+.span-2-5, .span-3-5 {float:left;margin-right:5px;}
+.last {margin-right:0;}
+.span-2-5 {width:100px;}
+.span-3-5 {width:120px;}

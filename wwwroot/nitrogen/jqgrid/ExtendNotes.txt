@@ -1,0 +1,78 @@
+There are some modifications in jquery.jqGrid.js compare to original file download from jqgrid web site
+(Compare r4757, 4758 of jquery.jqGrid.js to see more detail)
+-line 1453: len = drows.length; i=0; -> len = drows.length || 0; i=0;
+-line 2195: remove if(ts.p.savedRow.length > 0) {return;} to fix sort bug, when grid shon in editMode and user
+click on header
+-line 3066: add delLocalRow functions
+-line 5410: add
+        // append checkbox's label
+        var label_index = bchk==="" ? 1 : 0;
+        var label = op.label ? op.label[label_index] : "";
+-line 9246: add changeFocus parameter to editRows function
+-line 9324: add if(changeFocus)
+-line 9455: replace
+                    var tr = $t.rows.namedItem(rowid), positions = $.jgrid.findPos(tr);
+                    $.jgrid.info_dialog($.jgrid.errors.errcap,cv[1],$.jgrid.edit.bClose,{left:positions[0],top:positions[1]+$(tr).outerHeight()});
+            to
+                    // show validation error message as tooltip
+                    // this part added by Mr Ohta
+                    var msg = cv[1].replace(/\[object Object\]/,'');
+                    msg = $("<div/>").text(msg).html(); // HTML escape
+
+                    var elemid = rowid+"_"+cm['name'];
+                    var divid = elemid+"_err";
+
+                    var index = $('#'+elemid).closest('tr')[0].rowIndex;
+                    var perHeight = $('#'+elemid).closest('tr').outerHeight({margin:true});
+
+                    var remFn = function() {
+                        $('#'+divid).remove();
+                    }
+                    remFn();
+
+                    var p = $($t);
+                    var base_off = p.offset();
+                    var off = $('#'+elemid).offset();
+
+                    off.top = perHeight*(index-1);
+                    off.left -= base_off.left;
+
+                    // for IE8
+                    if($(".jqgcell_error_head",this).html()==null) {
+                        p.append("<div style = 'height:0; width:0' class='jqgcell_error_head'>&nbsp;</div>");
+                    }
+
+                    $('.jqgcell_error_head',this).append("<div id="+divid+" class='jqgcell_error_message'>"+msg+"</div>");
+                    $('#'+divid).css({position: 'absolute', top: off.top, left: off.left+25});
+                    $('#'+divid).click(remFn);
+                    $('#'+elemid).click(remFn);
+
+line 5813:
+// ドロップダウンのオプションの文字列をhtmlエスケープするためMurakumoが修正しました
+var cell = $(cellval).text();
+↓
+var cell = $(cellval).html().replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+
+line 3250:
+setRowDataを実行する時に、formatterがhtmlEscapeの場合セールのtitleは
+エスケープされ、&quot;、&gt;等になってしまうので
+title = this.title ? {"title":$.jgrid.stripHtml(vl)} : {};
+↓
+if(this.formatter && this.formatter === 'select') {
+    title = this.title ? {"title":$("td[role='gridcell']:eq("+i+")",ind).find('option:selected').text()} : {};
+} else {
+    title = this.title ? {"title":dval} : {};
+}
+を変更しました
+
+line 5527:
+$.fn.fmatter.emailで値をHTMLエンコードするように
+cellval = $.jgrid.htmlEncode(val);
+
+line 5551:
+$.fn.fmatter.linkで値をHTMLエンコードするように
+cellval = $.jgrid.htmlEncode(val);
+
+line 5564:
+$.fn.fmatter.showlinkで値をHTMLエンコードするように
+cellval = $.jgrid.htmlEncode(val);

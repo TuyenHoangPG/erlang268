@@ -1,0 +1,29 @@
+
+
+/*** UPLOAD ***/
+
+input.ie[type='button'] {
+    margin-left:2px;
+    margin-right:2px;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+
+div.fileinputs {
+    position: relative;
+}
+
+div.fakefile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+input.file {
+    position: relative;
+    text-align: right;
+    -moz-opacity:0 ;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+}

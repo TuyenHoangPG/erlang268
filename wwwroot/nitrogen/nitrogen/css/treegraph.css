@@ -1,0 +1,10 @@
+
+
+/*treegraph*/
+div.treegraph{overflow:hidden;}
+div.treegraph div.treegraph-canvas{border:1px solid #ccc;background:#fff;}
+div.treegraph input.treegraph-button{display:none !important;} /*hidden button*/
+div.treegraph-controller{height:33px; background:#4a4a4a;color:#fff;text-align:center;line-height:25px;}
+div.treegraph span.select-block{white-space:nowrap;margin-right:8px;}
+div.treegraph span.root-label{font-weight:bold;display:inline-block;}
+div.socialgraph svg{width:100%;height:100%;}

@@ -1,0 +1,11 @@
+
+
+/*flotgraph*/
+ul.flotgraph-choice{list-style:none;padding:5px 10px;display:block;}
+ul.flotgraph-choice li{display:inline-block;vertical-align:middle;}
+ul.flotgraph-choice label,
+ul.flotgraph-choice input,
+ul.flotgraph-choice span
+{display:inline-block;vertical-align:middle;margin:0;height:1.5em;line-height:1.5em;top:0;}
+ul.flotgraph-choice label{margin-right:5px;white-space:nowrap;max-width:100px;overflow:hidden;text-overflow:ellipsis;}
+ul.flotgraph-choice span.flotgraph-color{width:1em;height:1em;}

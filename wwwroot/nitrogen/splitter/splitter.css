@@ -1,0 +1,133 @@
+/*
+ * Splitter container. Set this to the desired width and height
+ * of the combined left and right panes. In this example, the
+ * height is fixed and the width is the full width of the body,
+ * less the margin on the splitter itself.
+ */
+.MySplitter {
+    height: 400px;
+    margin: 1em 3em;
+    border: 5px  #bdb;
+    /* No padding allowed */
+}
+/*
+ * Left-side element of the splitter. Use pixel units for the
+ * min-width and max-width; the splitter plugin parses them to
+ * determine the splitter movement limits. Set the width to
+ * the desired initial width of the element; the plugin changes
+ * the width of this element dynamically.
+ */
+.LeftPane {
+    background: #efe;
+    overflow: auto;
+    /* No margin or border allowed */
+}
+/*
+ * Right-side element of the splitter.
+ */
+.RightPane {
+    background: #f8fff8;
+    overflow: auto;
+    /* No margin or border allowed */
+}
+/*
+ * Splitter bar style; the .active class is added when the
+ * mouse is over the splitter or the splitter is focused
+ * via the keyboard taborder or an accessKey.
+ */
+.vsplitbar {
+    width: 6px;
+    background: #aca url(img/vgrabber.gif) no-repeat center;
+}
+.vsplitbar.active {
+    background: #da8 url(img/vgrabber.gif) no-repeat center;
+    opacity: 0.7;
+}
+/************************************************************************/
+/*
+ * Top element of the splitter. Use pixel units for the
+ * min-height and max-height; the splitter plugin parses them to
+ * determine the splitter movement limits. Set the height to
+ * the desired initial height of the element; the plugin changes
+ * the height of this element dynamically.
+ */
+
+.MyChildSplitter {
+    height: 300px;
+    width: 600px;
+    border: 4px #cca;
+    /* No padding allowed */
+}
+
+.TopPane {
+    background: #ffe;
+    overflow: auto;
+    /* Initial/min/max height for this pane */
+    height: 100px;
+    min-height: 50px;
+    max-height: 200px;
+    /* No margin or border allowed */
+}
+/*
+ * Bottom element of the splitter; the plugin changes the top
+ * position and height of this element dynamically.
+ */
+.BottomPane {
+    background: #ffd;
+    overflow: auto;
+    /* No margin or border allowed */
+}
+/*
+ * Splitter bar style; the .active class is added when the
+ * mouse is over the splitter or the splitter is focused
+ * via the keyboard taborder or an accessKey.
+ */
+.hsplitbar {
+    height: 6px;
+    background: #cca url(img/hgrabber.gif) no-repeat center;
+    /* No margin, border, or padding allowed */
+}
+.hsplitbar.active, #MySplitter .hsplitbar:hover {
+    background: #e88 url(img/hgrabber.gif) no-repeat center;
+}
+
+/* Splitbar styles; these are the default class names */
+
+.ui-state-default { background-color: #88c }
+.ui-state-hover { background-color: #bbf }
+.ui-state-highlight { background-color: #68f }
+.ui-state-error { background-color: #eaa }
+
+.splitter-pane {
+    overflow: auto;
+}
+.splitter-bar-vertical {
+    width: 6px;
+    background-image: url(img/vgrabber.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.splitter-bar-vertical-docked {
+    width: 10px;
+    background-image: url(img/vdockbar-trans.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.splitter-bar-horizontal {
+    height: 6px;
+    background-image: url(img/hgrabber.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.splitter-bar-horizontal-docked {
+    height: 10px;
+    background-image: url(img/hdockbar-trans.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.splitter-bar.ui-state-highlight {
+    opacity: 0.7;
+}
+.splitter-iframe-hide {
+    visibility: hidden;
+}

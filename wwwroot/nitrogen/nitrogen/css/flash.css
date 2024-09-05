@@ -1,0 +1,23 @@
+
+
+/*** FLASH ***/
+
+.flash_container {
+}
+
+.flash {
+    color: #303030;
+    background-color: #FAEC7F;
+    border: #FFE800 solid 2px;
+    padding: 3px 5px 3px 5px;
+    margin-bottom: 7px;
+}
+
+.flash .flash_content {
+    margin-right: 50px;
+}
+
+.flash .flash_close_button {
+    float: right;
+    font-size: 90%;
+}

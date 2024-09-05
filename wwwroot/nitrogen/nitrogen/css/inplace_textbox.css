@@ -1,0 +1,24 @@
+
+
+/*** INPLACE EDITING ***/
+
+div.inplace_textbox div.view {
+    cursor: pointer;
+}
+
+div.inplace_textbox .label {
+    display: inline;
+}
+
+div.inplace_textbox .instructions {
+    padding-left: 12px;
+    font-size: 0.8em;
+}
+
+div.inplace_textbox .LV_invalid {
+    position: relative;
+    margin-right: 7px;
+    color:#CC0000;
+    background-color: #FFFF99;
+    border: solid 2px #D0D0C0;
+}

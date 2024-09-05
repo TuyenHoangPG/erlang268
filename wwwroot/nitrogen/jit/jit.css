@@ -1,0 +1,6 @@
+div.treegraph{overflow:hidden;cursor:move;}
+div.treegraph-canvas{border:1px solid #ccc;background:#fff;}
+div.treegraph-log{background:#4a4a4a;color:#fff;text-align:center;line-height:25px;height:25px;}
+div.treegraph input{display:none !important;} /*hidden button*/
+div.treegraph span.select-block{write-space:nowrap;margin-right:8px;}
+div.treegraph span.root-label{font-weight:bold;display:inline-block;}

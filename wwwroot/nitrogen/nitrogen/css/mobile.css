@@ -1,0 +1,13 @@
+/*    mobile slider    */
+div.ui-slider > div.ui-slider-track.ui-mini {
+    margin-right: 15px !important;
+    margin-bottom: 0px !important;
+    margin-left: 68px !important;
+    margin-top: 0px !important;
+}
+
+/*    validation message   */
+/* make sure the message appears above the button */
+.LV_validation_message {
+    z-index: 3;
+}

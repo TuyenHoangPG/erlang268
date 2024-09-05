@@ -1,0 +1,12 @@
+
+
+/*** FLOATING WINDOW ***/
+.ui-floating-window.ui-widget-content {
+    background: white;
+    border: solid 1px;
+    border-color: rgba(92, 92, 92, 0.56);
+}
+/* support floating window when we show with effect explode in floating window */
+.ui-effects-explode {
+    z-index: 10000;
+}

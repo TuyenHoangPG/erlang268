@@ -1,0 +1,19 @@
+
+
+/*** BOX ***/
+.box {
+    background: #eee url(images/bl.gif) no-repeat left bottom;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    _background-color: #ddd; /*IE6 Windows looks paler*/
+}
+.box_outer {
+    background: url(images/br.gif) no-repeat right bottom;
+}
+.box_inner {
+    background: url(images/tl.gif) no-repeat left top;
+}
+.box .topright {
+    background: url(images/tr.gif) no-repeat right top;
+}
