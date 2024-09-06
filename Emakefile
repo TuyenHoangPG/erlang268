@@ -1,6 +1,7 @@
 {['src/*',
   'src/models/*',
-  'src/pages/**/*'],
+  'src/pages/**/*',
+  'src/repositories/*'],
 [{outdir, "ebin"},
  debug_info,
  % You can specify the encoding of the source code with the {encoding, E} option.

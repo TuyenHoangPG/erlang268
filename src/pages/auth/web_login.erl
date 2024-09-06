@@ -35,15 +35,18 @@ body() ->
 
     Body.
 
-check_exist(Tag, Value) ->
-    io:format("Value: ~p", [Value]),
+check_exist(_Tag, Value) ->
+    io:format("Value: ~p~n", [Value]),
+    Account = account_repository:get_account(Value),
 
-    % TODO: Add logic check if account name exists
-    false.
+    case Account of
+        undefined -> false;
+        _ -> wf:user({account, Account}), true
+    end.
+
 
 % Event handler
 event(handle_login) ->
-    [AccountName] = wf:q("account_name"),
-    io:format("Account Name: ~p~n", [AccountName]);
+    wf:redirect("/topic/list");
 event(_) -> ok.
 
