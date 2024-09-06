@@ -47,6 +47,6 @@ check_exist(_Tag, Value) ->
 
 % Event handler
 event(handle_login) ->
-    wf:redirect("/topic/list");
+    wf:redirect_from_login("/topic/list");
 event(_) -> ok.
 

@@ -5,7 +5,15 @@
 -export([start/2, stop/1, route/1, before_filter/1, after_filter/2]).
 
 start(_, _) ->
-    fermium:start_link(erlang268).
+    Ret = fermium:start_link(erlang268),
+
+    wf_filter:append_before_filter(
+        login_filter,
+        is_login_user,
+        {url_pattern, "topic\/new$"}
+    ),
+
+    Ret.
 
 stop(_) -> ok.
 
