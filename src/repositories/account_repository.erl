@@ -12,3 +12,8 @@ get_account() ->
   Accounts = accounts:find(),
   io:format("Accounts: ~p~n", [Accounts]),
   Accounts.
+
+get_role(Account) ->
+  Role = element(7, Account),
+  RoleStr = binary_to_list(Role),
+  RoleStr.

@@ -41,7 +41,10 @@ check_exist(_Tag, Value) ->
 
     case Account of
         undefined -> false;
-        _ -> wf:user({account, Account}), true
+        _ -> 
+            Role = account_repository:get_role(Account),
+            wf:role(role, Role),
+            wf:user({account, Account}), true
     end.
 
 
