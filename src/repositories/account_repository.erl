@@ -2,10 +2,15 @@
 -compile([export_all, nowarn_export_all]).
 
 get_account(AccountName) ->
-  io:format("get_account :: Account Name: ~p~n", [AccountName]),
   case account:find({ name, '=', AccountName }) of
     [] -> undefined;
-    [Account] -> io:format("Account exist: ~p~n", [Account]), Account
+    [Account] -> Account
+  end.
+
+get_account_by_id(AccountId) ->
+  case account:find({ id, '=', AccountId }) of
+    [] -> undefined;
+    [Account] -> Account
   end.
 
 get_account() ->

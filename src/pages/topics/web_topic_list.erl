@@ -30,7 +30,7 @@ render_list_topic() ->
         AuthorStr = binary_to_list(AuthorName),
 
         #rounded_panel{id = "topic" ++ TopicId, radius = [10], class = "test_box", body = [
-            #h2{text = TitleStr},
+            #link{text = TitleStr, url = "/topic/detail/" ++ TopicId, style = "font-size: 20px;"},
             #p{body = DescriptionStr},
             #h4{text = "Author: " ++ AuthorStr}]
         }

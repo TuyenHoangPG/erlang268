@@ -36,11 +36,6 @@ event(submit_topic) ->
     [Description] = wf:q(description),
     Author = user_util:get_user(),
     AuthorId = account:id(Author),
-
-    io:format("Title: ~p~n", [Title]),
-    io:format("Description: ~p~n", [Description]),
-    io:format("AuthorId: ~p~n", [AuthorId]),
-
     CreatedTopic = topic_repository:create_topic(Title, Description, AuthorId),
 
     io:format("Created topic: ~p~n", [CreatedTopic]),
