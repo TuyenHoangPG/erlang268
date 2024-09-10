@@ -10,3 +10,7 @@ get_topic(TopicId) ->
 get_topic() ->
   Topics = topics:find(),
   Topics.
+
+create_topic(Title, Description, Author) ->
+  Topic = topics:new_with([{title, Title}, {description, Description}, {account_id, Author}]),
+  topics:insert([Topic]).

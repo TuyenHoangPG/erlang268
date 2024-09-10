@@ -8,10 +8,39 @@ main() ->
     #template{file = "src/templates/web/template.html"}.
 
 title() ->
-    "web_topic_new".
+    "Create New Topic".
 
 body() ->
-    #label{text = "web_topic_new body."}.
+    Body = [
+        #fieldset {
+            legend = "Create new topic",
+            body = [
+                #panel {
+                    id = "create_topic",
+                    body = [
+                        #label { text = "New Topic"},#br{},
+                        #label { text = "Title"}, #textbox{id = "title", next = "description" }, #br{},
+                        #label { text = "Description"}, #textarea{id = "description"}, #br{},
+                        #button { id = "btn_submit", text = "Create", postback = submit_topic },
+                        #button { id = "btn_cancel", text = "Cancel", postback = cancel }
+                    ]
+                }
+            ]
+        }
+    ],
 
+    Body.
+
+event(submit_topic) ->
+    Title = wf:q(title),
+    Description = wf:q(description),
+
+    Author = wf:user(),
+
+    topic_repository:create_topic(Title, Description, Author),
+
+    wf:redirect("/topics");
+event(cancel) ->
+    wf:redirect("/topics");
 event(_) -> ok.
 
