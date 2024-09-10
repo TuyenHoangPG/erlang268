@@ -2,7 +2,8 @@
   'src/models/*',
   'src/pages/**/*',
   'src/repositories/*',
-  'src/middlewares/*'
+  'src/middlewares/*',
+  'src/utils/*'
 ],
 [{outdir, "ebin"},
  debug_info,

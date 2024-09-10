@@ -32,15 +32,21 @@ body() ->
     Body.
 
 event(submit_topic) ->
-    Title = wf:q(title),
-    Description = wf:q(description),
+    [Title] = wf:q(title),
+    [Description] = wf:q(description),
+    Author = user_util:get_user(),
+    AuthorId = element(3, Author),
 
-    Author = wf:user(),
+    io:format("Title: ~p~n", [Title]),
+    io:format("Description: ~p~n", [Description]),
+    io:format("AuthorId: ~p~n", [AuthorId]),
 
-    topic_repository:create_topic(Title, Description, Author),
+    CreatedTopic = topic_repository:create_topic(Title, Description, AuthorId),
 
-    wf:redirect("/topics");
+    io:format("Created topic: ~p~n", [CreatedTopic]),
+
+    wf:redirect("/topic/list");
 event(cancel) ->
-    wf:redirect("/topics");
+    wf:redirect("/topic/list");
 event(_) -> ok.
 

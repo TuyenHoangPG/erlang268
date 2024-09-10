@@ -8,9 +8,9 @@ get_topic(TopicId) ->
   end.
 
 get_topic() ->
-  Topics = topics:find(),
+  Topics = topics:find_with({ order_by, { created_at, desc } }),
   Topics.
 
-create_topic(Title, Description, Author) ->
-  Topic = topics:new_with([{title, Title}, {description, Description}, {account_id, Author}]),
-  topics:insert([Topic]).
+create_topic(Title, Description, AuthorId) ->
+  Topic = topics:new_with([{title, Title}, {description, Description}, {account_id, AuthorId}]),
+  topics:save_returning(Topic).

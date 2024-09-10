@@ -33,7 +33,7 @@ stop(_) -> ok.
 %% from "/newroute" to the web_index module,
 %% with trailing PathInfo included:
 %%
-%% route("/newroute/" ++ PathInfo) -> {web_index, PathInfo};
+route("/") -> {web_topic_list, []};
 route(Path) -> nitrogen:route(Path).
 
 %% If before_filter/1 exists, it will be executed before every Nitrogen page,

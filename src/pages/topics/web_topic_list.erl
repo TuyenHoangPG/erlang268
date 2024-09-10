@@ -38,14 +38,15 @@ render_list_topic() ->
 
 
 render_message() ->
-    case wf:user() of
+    Account = user_util:get_user(),
+    case Account of
         undefined -> 
             [
-                #label { text = "Please login to see topics comment" },
+                #label { text = "Please login to see topics" },
                 #button{id = "btn_login", text = "Login", postback = login}
             ];
 
-        {_, Account} -> 
+        _ -> 
             Name = element(4, Account),
             NameStr = binary_to_list(Name),
             [
