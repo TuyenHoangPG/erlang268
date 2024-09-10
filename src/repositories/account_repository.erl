@@ -14,6 +14,6 @@ get_account() ->
   Accounts.
 
 get_role(Account) ->
-  Role = element(7, Account),
+  Role = account:role(Account),
   RoleStr = binary_to_list(Role),
   RoleStr.

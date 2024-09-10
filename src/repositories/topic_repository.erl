@@ -8,7 +8,17 @@ get_topic(TopicId) ->
   end.
 
 get_topic() ->
-  Topics = topic:find_with({ order_by, { created_at, desc } }),
+  Query = "
+    SELECT 
+      t.id, t.title, t.description, t.account_id, t.created_at, a.name
+    FROM topic t
+    JOIN account a ON t.account_id = a.id
+    WHERE t.is_deleted = false
+    ORDER BY created_at DESC
+  ",
+
+  % Topics = topic:find_with({ order_by, { created_at, desc } }),
+  Topics = erlydb_psql:q2(Query),
   Topics.
 
 create_topic(Title, Description, AuthorId) ->

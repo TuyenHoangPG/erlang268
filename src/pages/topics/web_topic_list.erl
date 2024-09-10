@@ -22,15 +22,17 @@ body() ->
 render_list_topic() ->
     Topics = topic_repository:get_topic(),
     TopicListElement = lists:map(fun(Topic) ->
-        Id = integer_to_list(element(3, Topic)),
-        Title = binary_to_list(element(4, Topic)),
-        Description = binary_to_list(element(5, Topic)),
-        Author = integer_to_list(element(6, Topic)),
+        { Id, Title, Description, _, _, AuthorName } = Topic,
 
-        #rounded_panel{id = "topic" ++ Id, radius = [10], class = "test_box", body = [
-            #h2{text = Title},
-            #p{body = Description},
-            #h4{text = "Author: " ++ Author}]
+        TopicId = integer_to_list(Id),
+        TitleStr = binary_to_list(Title),
+        DescriptionStr = binary_to_list(Description),
+        AuthorStr = binary_to_list(AuthorName),
+
+        #rounded_panel{id = "topic" ++ TopicId, radius = [10], class = "test_box", body = [
+            #h2{text = TitleStr},
+            #p{body = DescriptionStr},
+            #h4{text = "Author: " ++ AuthorStr}]
         }
     end, Topics),
 
@@ -47,7 +49,7 @@ render_message() ->
             ];
 
         _ -> 
-            Name = element(4, Account),
+            Name = account:name(Account),
             NameStr = binary_to_list(Name),
             [
                 #label { text = "Welcome " ++ NameStr },

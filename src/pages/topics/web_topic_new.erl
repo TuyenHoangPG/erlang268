@@ -35,7 +35,7 @@ event(submit_topic) ->
     [Title] = wf:q(title),
     [Description] = wf:q(description),
     Author = user_util:get_user(),
-    AuthorId = element(3, Author),
+    AuthorId = account:id(Author),
 
     io:format("Title: ~p~n", [Title]),
     io:format("Description: ~p~n", [Description]),
