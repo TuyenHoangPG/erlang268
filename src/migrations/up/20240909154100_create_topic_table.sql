@@ -1,8 +1,8 @@
-CREATE TABLE "comments" (
+CREATE TABLE "topic" (
   id SERIAL PRIMARY KEY,
-  body TEXT NOT NULL,
-  topic_id INTEGER REFERENCES topics(id),
-  account_id INTEGER REFERENCES accounts(id),
+  title VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  account_id INTEGER REFERENCES account(id),
   is_deleted BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()

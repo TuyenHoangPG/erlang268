@@ -1,4 +1,4 @@
-CREATE TABLE "accounts" (
+CREATE TABLE "account" (
   id SERIAL PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
   role VARCHAR(20) NOT NULL DEFAULT 'USER',
